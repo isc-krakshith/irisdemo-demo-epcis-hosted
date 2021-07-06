@@ -985,14 +985,15 @@ class EPCISIRISService {
         //when the front end is run in an angular container
         //environment.apiURL will be an empty string IF backend IP address
         //is not provided to ng at build time, environment variable HOST_IP
-        if (src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiURL === "localhost") {
+        if ((src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiURL === "localhost") || (src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiURL === "")) {
             //If it is set to 'localhost', it is still possible that
             //that the angular content is being served remotely
             //Then the most reliable way to find the IP address of the container
             //is to read it from the browser adddress bar
             // so return the substring between 'http://' and the port marker ':' */
-            let url = location.toString();
-            return url.substr(7, (url.indexOf(':', 7) - 7));
+            let thislocation = location.toString();
+            thislocation = thislocation.substr(7, (thislocation.indexOf(':', 7) - 7));
+            return 'http://' + thislocation;
         }
         else {
             return 'http://' + src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiURL;
