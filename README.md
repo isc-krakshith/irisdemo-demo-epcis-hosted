@@ -25,4 +25,4 @@ Once the container is up and running, access UI at: http://localhost:52773/csp/e
 
 IRIS Management Portal is accessible at: http://localhost:52773/csp/sys/utilhome.csp
 
-IRIS hosts as well as provides the REST endpoints to serve the angular frontend.
+IRIS hosts as well as provides the REST endpoints to serve the angular frontend. If container is deployed remotely, replace 'localhost' with external IP address of the remote host.
