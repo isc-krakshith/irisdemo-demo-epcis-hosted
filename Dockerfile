@@ -19,7 +19,6 @@ COPY  src/epcis /opt/epcis/epcis
 COPY  src/user /opt/epcis/user
 COPY  src/hslib /opt/epcis/hslib
 COPY  iris.script /tmp/iris.script
-COPY  epcis-app /usr/irissys/csp/epcis
 
 RUN mkdir /opt/epcis/hl7msg
 RUN mkdir /opt/epcis/hl7msg/in
@@ -34,3 +33,6 @@ USER ${ISC_PACKAGE_MGRUSER}
 RUN iris start $ISC_PACKAGE_INSTANCENAME \
 	&& iris session $ISC_PACKAGE_INSTANCENAME < /tmp/iris.script \
 	&& iris stop $ISC_PACKAGE_INSTANCENAME quietly
+	
+#can do next step last as it is not compiled
+COPY  epcis-app /usr/irissys/csp/epcis
