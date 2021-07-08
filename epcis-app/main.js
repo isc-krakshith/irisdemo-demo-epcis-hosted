@@ -456,7 +456,7 @@
         }
     }
     AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-    AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 23, vars: 0, consts: [["src", "assets/img/EPCISLogo8.jpg", "width", "250"], ["dynamicHeight", ""], [1, "presentation-screen", "mat-elevation-z4"], ["mat-tab-label", ""], [1, "adt-screen", "mat-elevation-z4"], [1, "pharmacy-screen", "mat-elevation-z4"], [1, "runner-screen", "mat-elevation-z4"], [1, "mat-elevation-z4"], [1, "main-content"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+    AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 23, vars: 0, consts: [["src", "/csp/epcis/assets/img/EPCISLogo8.jpg", "width", "250"], ["dynamicHeight", ""], [1, "presentation-screen", "mat-elevation-z4"], ["mat-tab-label", ""], [1, "adt-screen", "mat-elevation-z4"], [1, "pharmacy-screen", "mat-elevation-z4"], [1, "runner-screen", "mat-elevation-z4"], [1, "mat-elevation-z4"], [1, "main-content"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 0);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-tab-group", 1);
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-tab");
