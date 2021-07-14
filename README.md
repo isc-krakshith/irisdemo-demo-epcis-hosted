@@ -10,7 +10,7 @@ Build the image:
 
 ```console
 $ git clone https://github.com/isc-krakshith/irisdemo-demo-epcis-hosted
-$ cd irisdemo-demo-gs1-hosted
+$ cd irisdemo-demo-epcis-hosted
 $ docker-compose build
 ```
 # Run
