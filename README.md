@@ -1,4 +1,4 @@
-# IRIS DEMO GS1 HOSTED
+# IRIS DEMO EPCIS HOSTED
 
 # What do you need to install? 
 * [Git](https://git-scm.com/downloads) 
@@ -9,7 +9,7 @@
 Build the image:
 
 ```console
-$ git clone https://github.com/isc-krakshith/irisdemo-demo-gs1-hosted
+$ git clone https://github.com/isc-krakshith/irisdemo-demo-epcis-hosted
 $ cd irisdemo-demo-gs1-hosted
 $ docker-compose build
 ```

@@ -545,7 +545,7 @@ class InstructionsComponent {
     }
 }
 InstructionsComponent.ɵfac = function InstructionsComponent_Factory(t) { return new (t || InstructionsComponent)(); };
-InstructionsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: InstructionsComponent, selectors: [["app-instructions"]], decls: 217, vars: 0, consts: [[1, "list-lower-alpha"], [1, "list-lower-roman"], [1, "list-circle"], ["href", "https://github.com/isc-krakshith/iris-epcis-docker-application", "target", "_blank", "rel", "noopener noreferrer"], ["href", "https://github.com/isc-krakshith/irisdemo-demo-gs1-hosted", "target", "_blank", "rel", "noopener noreferrer"]], template: function InstructionsComponent_Template(rf, ctx) { if (rf & 1) {
+InstructionsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: InstructionsComponent, selectors: [["app-instructions"]], decls: 217, vars: 0, consts: [[1, "list-lower-alpha"], [1, "list-lower-roman"], [1, "list-circle"], ["href", "https://github.com/isc-krakshith/iris-epcis-docker-application", "target", "_blank", "rel", "noopener noreferrer"], ["href", "https://github.com/isc-krakshith/irisdemo-demo-epcis-hosted", "target", "_blank", "rel", "noopener noreferrer"]], template: function InstructionsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h2");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Introduction");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
