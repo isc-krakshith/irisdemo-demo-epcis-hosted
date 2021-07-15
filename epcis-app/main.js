@@ -550,7 +550,7 @@ InstructionsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Introduction");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "This is a demonstration of an EPCIS (Electronic Product Code Implementation Services, a global GS1 standard) solution serving the healthcare sector built on the InterSystems IRIS for Health data platform. It addresses medicine tracking in a hospital where the benefits are mainly the efficiency of managing the delivery of pharmaceutical prescriptions to inpatients who may be potentially transferring between departments, being or have been discharged.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "This is a demonstration of an EPCIS (Electronic Product Code Information Services, a global GS1 standard) solution serving the healthcare sector built on the InterSystems IRIS for Health data platform. It addresses medicine tracking in a hospital where the benefits are mainly the efficiency of managing the delivery of pharmaceutical prescriptions to inpatients who may be potentially transferring between departments, being or have been discharged.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "h2");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Use case");
