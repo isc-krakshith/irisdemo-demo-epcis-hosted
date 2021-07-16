@@ -80,6 +80,7 @@ var _package_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpac
 const environment = {
     production: false,
     apiURL: 'localhost',
+    apiPORT: '52773',
     version: _package_json__WEBPACK_IMPORTED_MODULE_0__["version"]
 };
 /*
@@ -512,7 +513,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("App Version:", ctx.version, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("app version: ", ctx.version, "");
     } }, directives: [_angular_material_tabs__WEBPACK_IMPORTED_MODULE_2__["MatTabGroup"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_2__["MatTab"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_2__["MatTabLabel"], _presentation_presentation_component__WEBPACK_IMPORTED_MODULE_3__["PresentationComponent"], _admission_form_admission_form_component__WEBPACK_IMPORTED_MODULE_4__["AdmissionFormComponent"], _pharmacy_ui_pharmacy_ui_component__WEBPACK_IMPORTED_MODULE_5__["PharmacyUiComponent"], _runner_app_runner_app_component__WEBPACK_IMPORTED_MODULE_6__["RunnerAppComponent"], _messages_messages_component__WEBPACK_IMPORTED_MODULE_7__["MessagesComponent"]], styles: ["#screen[_ngcontent-%COMP%] {\n    height: 821px;\n    width: 375px;\n    border: 1px solid black;\n    margin: auto;\n  }\n  \n  #screen-top[_ngcontent-%COMP%] {\n    height: 80%;\n    background: linear-gradient(to bottom, #ccccff 0%, #666699 100%);\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-family: Helvetica;\n    font-weight: bolder;\n    font-size: 30px;\n  }\n  \n  #screen-footer[_ngcontent-%COMP%] {\n    height: 20%;\n    background: linear-gradient(to bottom, #666699 0%, #000066 100%);\n    color: rgba(0, 0, 0, 0.54);\n    font-family: Helvetica;\n    font-weight: bold;\n    box-sizing: border-box;\n    padding: 24px;\n    text-align: center;\n  }\n  \n  .tab-icon[_ngcontent-%COMP%] {\n    margin-right: 8px;\n  }\n  \n  .header-icon[_ngcontent-%COMP%]{\n    font-size: 70px;\n    color:#3F51B5;\n    align-content: right;\n  }\n  \n  .presentation-screen[_ngcontent-%COMP%], .adt-screen[_ngcontent-%COMP%], .runner-screen[_ngcontent-%COMP%], .pharmacy-screen[_ngcontent-%COMP%] {\n    display: flex;\n    align-items: center;\n    justify-content:center;\n    margin: 16px;\n    padding: 16px;\n    border-radius: 20px;\n  }\n  \n  .adt-screen[_ngcontent-%COMP%] {\n    height: 300px;\n    width: 450px;\n  }\n  \n  .pharmacy-screen[_ngcontent-%COMP%] {\n    height: 910px;\n    width: 630px;\n    border-radius: 36px;\n  }\n  \n  .runner-screen[_ngcontent-%COMP%] {\n    height: 750px;\n    width: 380px;\n    border-radius: 36px;\n  }\n  \n  .large-box[_ngcontent-%COMP%] {\n    height: 400px;\n    width: 400px;\n  }\n  \n  code[_ngcontent-%COMP%], pre[_ngcontent-%COMP%], xmp[_ngcontent-%COMP%], kbd[_ngcontent-%COMP%] {\n    font-family: 'Roboto Mono', Courier New, Courier, monospace;\n  }\n  \n  .version-container[_ngcontent-%COMP%] {\n    text-align:right;\n    font-size: 10pt;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2IsWUFBWTtJQUNaLHVCQUF1QjtJQUN2QixZQUFZO0VBQ2Q7O0VBRUE7SUFDRSxXQUFXO0lBQ1gsZ0VBQWdFO0lBQ2hFLDBCQUEwQjtJQUMxQixhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLHVCQUF1QjtJQUN2QixzQkFBc0I7SUFDdEIsbUJBQW1CO0lBQ25CLGVBQWU7RUFDakI7O0VBRUE7SUFDRSxXQUFXO0lBQ1gsZ0VBQWdFO0lBQ2hFLDBCQUEwQjtJQUMxQixzQkFBc0I7SUFDdEIsaUJBQWlCO0lBQ2pCLHNCQUFzQjtJQUN0QixhQUFhO0lBQ2Isa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0UsaUJBQWlCO0VBQ25COztFQUVBO0lBQ0UsZUFBZTtJQUNmLGFBQWE7SUFDYixvQkFBb0I7RUFDdEI7O0VBRUE7SUFDRSxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLHNCQUFzQjtJQUN0QixZQUFZO0lBQ1osYUFBYTtJQUNiLG1CQUFtQjtFQUNyQjs7RUFFQTtJQUNFLGFBQWE7SUFDYixZQUFZO0VBQ2Q7O0VBRUE7SUFDRSxhQUFhO0lBQ2IsWUFBWTtJQUNaLG1CQUFtQjtFQUNyQjs7RUFFQTtJQUNFLGFBQWE7SUFDYixZQUFZO0lBQ1osbUJBQW1CO0VBQ3JCOztFQUVBO0lBQ0UsYUFBYTtJQUNiLFlBQVk7RUFDZDs7RUFFQTtJQUNFLDJEQUEyRDtFQUM3RDs7RUFFQTtJQUNFLGdCQUFnQjtJQUNoQixlQUFlO0FBQ25CIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjc2NyZWVuIHtcbiAgICBoZWlnaHQ6IDgyMXB4O1xuICAgIHdpZHRoOiAzNzVweDtcbiAgICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcbiAgICBtYXJnaW46IGF1dG87XG4gIH1cbiAgXG4gICNzY3JlZW4tdG9wIHtcbiAgICBoZWlnaHQ6IDgwJTtcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQodG8gYm90dG9tLCAjY2NjY2ZmIDAlLCAjNjY2Njk5IDEwMCUpO1xuICAgIGNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNTQpO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBmb250LWZhbWlseTogSGVsdmV0aWNhO1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkZXI7XG4gICAgZm9udC1zaXplOiAzMHB4O1xuICB9XG4gIFxuICAjc2NyZWVuLWZvb3RlciB7XG4gICAgaGVpZ2h0OiAyMCU7XG4gICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KHRvIGJvdHRvbSwgIzY2NjY5OSAwJSwgIzAwMDA2NiAxMDAlKTtcbiAgICBjb2xvcjogcmdiYSgwLCAwLCAwLCAwLjU0KTtcbiAgICBmb250LWZhbWlseTogSGVsdmV0aWNhO1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gICAgcGFkZGluZzogMjRweDtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIH1cblxuICAudGFiLWljb24ge1xuICAgIG1hcmdpbi1yaWdodDogOHB4O1xuICB9XG5cbiAgLmhlYWRlci1pY29ue1xuICAgIGZvbnQtc2l6ZTogNzBweDtcbiAgICBjb2xvcjojM0Y1MUI1O1xuICAgIGFsaWduLWNvbnRlbnQ6IHJpZ2h0O1xuICB9XG5cbiAgLnByZXNlbnRhdGlvbi1zY3JlZW4sIC5hZHQtc2NyZWVuLCAucnVubmVyLXNjcmVlbiwgLnBoYXJtYWN5LXNjcmVlbiB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGp1c3RpZnktY29udGVudDpjZW50ZXI7XG4gICAgbWFyZ2luOiAxNnB4O1xuICAgIHBhZGRpbmc6IDE2cHg7XG4gICAgYm9yZGVyLXJhZGl1czogMjBweDtcbiAgfVxuICBcbiAgLmFkdC1zY3JlZW4ge1xuICAgIGhlaWdodDogMzAwcHg7XG4gICAgd2lkdGg6IDQ1MHB4O1xuICB9XG4gIFxuICAucGhhcm1hY3ktc2NyZWVuIHtcbiAgICBoZWlnaHQ6IDkxMHB4O1xuICAgIHdpZHRoOiA2MzBweDtcbiAgICBib3JkZXItcmFkaXVzOiAzNnB4O1xuICB9XG5cbiAgLnJ1bm5lci1zY3JlZW4ge1xuICAgIGhlaWdodDogNzUwcHg7XG4gICAgd2lkdGg6IDM4MHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDM2cHg7XG4gIH1cblxuICAubGFyZ2UtYm94IHtcbiAgICBoZWlnaHQ6IDQwMHB4O1xuICAgIHdpZHRoOiA0MDBweDtcbiAgfVxuXG4gIGNvZGUsIHByZSwgeG1wLCBrYmQge1xuICAgIGZvbnQtZmFtaWx5OiAnUm9ib3RvIE1vbm8nLCBDb3VyaWVyIE5ldywgQ291cmllciwgbW9ub3NwYWNlO1xuICB9XG5cbiAgLnZlcnNpb24tY29udGFpbmVyIHtcbiAgICB0ZXh0LWFsaWduOnJpZ2h0O1xuICAgIGZvbnQtc2l6ZTogMTBwdDtcbn0iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
@@ -1427,57 +1428,81 @@ class EPCISIRISService {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(result);
         };
     }
-    getBackendIP() {
-        //when the front end is run in an angular container
-        //environment.apiURL will be an empty string IF backend IP address
-        //is not provided to ng at build time, environment variable HOST_IP
-        if ((src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiURL === "localhost") || (src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiURL === "")) {
-            //If it is set to 'localhost', it is still possible that
-            //that the angular content is being served remotely
-            //Then the most reliable way to find the IP address of the container
-            //is to read it from the browser adddress bar
-            // so return the substring between 'http://' and the port marker ':' */
-            let thislocation = location.toString();
-            thislocation = thislocation.substr(7, (thislocation.indexOf(':', 7) - 7));
-            return 'http://' + thislocation;
+    getServerAddress() {
+        //lets first determine where  front-end is running
+        let thislocation = location.toString();
+        //find the location of the ':' which precedes the port
+        //it is effectively the final ':' in the location string
+        let portMarker = thislocation.lastIndexOf(':');
+        //find the begining of the server path
+        //this is the '/' which follows the port
+        let pathMarker = thislocation.indexOf('/', portMarker);
+        let serverHostURL = '';
+        let serverPort = '';
+        if (thislocation.search('csp/epcis/index.html') == 0 /*ends with csp/epcis/index.html*/) {
+            //front-end is hosted on IRIS's webserver
+            //determining server address is a no-brainer
+            //as the address is part of the location string
+            //find the substring from start up to and including the port
+            //(short of the first '/' after the port )
+            serverHostURL = thislocation.substr(0, pathMarker);
         }
         else {
-            return 'http://' + src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiURL;
+            //front-end is running independently in an angular container
+            //If backend IP and PORT are not specified to ng at build time
+            //via environment variables: HOST_IP and HOST_PORT
+            //environment.apiURL and environment.apiPORT will be empty strings
+            //and so we have more work to do
+            if ((src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiURL === "localhost") || (src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiURL === "")) {
+                //find the substring from start up to the port marker ':' )
+                serverHostURL = thislocation.substr(0, portMarker);
+            }
+            else {
+                serverHostURL = 'http://'.concat(src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiURL);
+            }
+            if ((src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiPORT === "52773") || (src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiPORT === "")) {
+                serverPort = "52773";
+            }
+            else {
+                serverPort = src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiPORT;
+            }
+            serverHostURL = serverHostURL.concat(':').concat(serverPort);
         }
+        return serverHostURL;
     }
     admitPatient(admitForm) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
-        let url = this.getBackendIP() + ':52773/query/demoStep1';
+        let url = this.getServerAddress().concat('/query/demoStep1');
         return this.http.post(url, admitForm, this.httpOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((newAdmit) => this.log('Admit: ' + `${newAdmit.PAS}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('admitPatient')));
     }
     linkDischarge() {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
-        let url = this.getBackendIP() + ':52773/query/demoStep2';
+        let url = this.getServerAddress().concat('/query/demoStep2');
         return this.http.get(url)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((newLink) => this.log('Link Discharge Document: ' + `${newLink}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('linkDischarge')));
     }
     getInpatientSpellId(genLabelForm) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
-        let url = this.getBackendIP() + ':52773/query/demoStep3';
+        let url = this.getServerAddress().concat('/query/demoStep3');
         return this.http.get(url, genLabelForm)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((any) => this.log('Inpatient Spell Id: ' + `${any.EventQueryResult[0].EPCISBody.EventList.TransactionEvent[0].any[1]}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('getInpatientSpellId')));
     }
     getPatientLocationId(genLabelForm) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
-        let url = this.getBackendIP() + ':52773/query/demoStep4';
+        let url = this.getServerAddress().concat('/query/demoStep4');
         return this.http.get(url, genLabelForm)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((any) => this.log('Patient Location Id: ' + `${any.EventQueryResult[0].EPCISBody.EventList.ObjectEvent[0].bizLocation.id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('getPatientLocationId')));
     }
     linkPigeonHole() {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
-        let url = this.getBackendIP() + ':52773/query/demoStep5';
+        let url = this.getServerAddress().concat('/query/demoStep5');
         return this.http.get(url)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((newLink) => this.log('Link Pigeon Hole : ' + `${newLink}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('linkPigeonhole')));
     }
     scanLocation(testPayload) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
-        let url = this.getBackendIP() + ':52773/query/demoStep6';
+        let url = this.getServerAddress().concat('/query/demoStep6');
         return this.http.get(url, this.httpTextOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((any) => this.log('Scan location : ' + `${any}`)), 
         //Sorry this is a hack... Complete REST response can be seen in the REST CALL LOGS TAB
@@ -1490,7 +1515,7 @@ class EPCISIRISService {
     }
     retrieveItems(retrieveForm) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
-        let url = this.getBackendIP() + ':52773/query/demoStep7';
+        let url = this.getServerAddress().concat('/query/demoStep7');
         return this.http.get(url, retrieveForm)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((any) => this.log('Retrieve Items : ' + `${any}`)), 
         //Sorry this is a hack... Complete REST response can be seen in the REST CALL LOGS TAB
@@ -1503,7 +1528,7 @@ class EPCISIRISService {
     }
     dischargePatient(admitForm) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
-        let url = this.getBackendIP() + ':52773/query/demoStep8';
+        let url = this.getServerAddress().concat('/query/demoStep8');
         return this.http.post(url, admitForm, this.httpOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((newDischarge) => this.log('Discharge: ' + `${newDischarge.PAS}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('dischargePatient')));
     }
@@ -1766,22 +1791,22 @@ class PresentationComponent {
     }
     openInNewTab(destination) {
         let url = '';
-        url = this.urlChecker.getBackendIP();
+        url = this.urlChecker.getServerAddress();
         if (destination == 'production') {
-            url = url + ':52773/csp/healthshare/epcis/EnsPortal.ProductionConfig.zen?PRODUCTION=EPCIS.intersystems.Production';
+            url = url.concat('/csp/healthshare/epcis/EnsPortal.ProductionConfig.zen?PRODUCTION=EPCIS.intersystems.Production');
         }
         else if (destination == 'messages') {
-            url = url + ':52773/csp/healthshare/epcis/EnsPortal.MessageViewer.zen';
+            url = url.concat('/csp/healthshare/epcis/EnsPortal.MessageViewer.zen');
         }
         else if (destination == 'BPL') {
-            url = url + ':52773/csp/healthshare/epcis/EnsPortal.BPLEditor.zen?BP=EPCIS.intersystems.HL7toLocationProcess.bpl';
+            url = url.concat('/csp/healthshare/epcis/EnsPortal.BPLEditor.zen?BP=EPCIS.intersystems.HL7toLocationProcess.bpl');
         }
         window.open(url, '_blank', 'location=yes,height=1080,width=1920,scrollbars=yes,status=yes').focus();
     }
     openIRISTabs() {
         let url = '';
-        url = this.urlChecker.getBackendIP();
-        url = url + ':52773/csp/healthshare/epcis/EnsPortal.';
+        url = this.urlChecker.getServerAddress();
+        url = url.concat('/csp/healthshare/epcis/EnsPortal.');
         let production = 'ProductionConfig.zen?PRODUCTION=EPCIS.intersystems.Production';
         let messages = 'MessageViewer.zen';
         let BPL = 'BPLEditor.zen?BP=EPCIS.intersystems.HL7toLocationProcess.bpl';
@@ -1864,7 +1889,7 @@ PresentationComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
 /*! exports provided: name, version, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"epcis-app\",\"version\":\"1.0.4\",\"scripts\":{\"ng\":\"ng\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~10.1.3\",\"@angular/cdk\":\"^10.2.7\",\"@angular/common\":\"~10.1.3\",\"@angular/compiler\":\"~10.1.3\",\"@angular/core\":\"~10.1.3\",\"@angular/forms\":\"~10.1.3\",\"@angular/material\":\"^10.2.7\",\"@angular/platform-browser\":\"~10.1.3\",\"@angular/platform-browser-dynamic\":\"~10.1.3\",\"@angular/router\":\"~10.1.3\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1001.3\",\"@angular/cli\":\"~10.1.3\",\"@angular/compiler-cli\":\"~10.1.3\",\"@types/node\":\"^12.11.1\",\"@types/jasmine\":\"~3.5.0\",\"@types/jasminewd2\":\"~2.0.3\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.0.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage-istanbul-reporter\":\"~3.0.2\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
+module.exports = JSON.parse("{\"name\":\"epcis-app\",\"version\":\"1.1.0\",\"scripts\":{\"ng\":\"ng\",\"prestart\":\"envsubst < src/environments/environment.template.ts > src/environments/environment.ts\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~10.1.3\",\"@angular/cdk\":\"^10.2.7\",\"@angular/common\":\"~10.1.3\",\"@angular/compiler\":\"~10.1.3\",\"@angular/core\":\"~10.1.3\",\"@angular/forms\":\"~10.1.3\",\"@angular/material\":\"^10.2.7\",\"@angular/platform-browser\":\"~10.1.3\",\"@angular/platform-browser-dynamic\":\"~10.1.3\",\"@angular/router\":\"~10.1.3\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1001.3\",\"@angular/cli\":\"~10.1.3\",\"@angular/compiler-cli\":\"~10.1.3\",\"@types/jasmine\":\"~3.5.0\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.0.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage-istanbul-reporter\":\"~3.0.2\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
 
 /***/ }),
 
