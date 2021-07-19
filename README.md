@@ -11,6 +11,10 @@ Build the image:
 ```console
 $ git clone https://github.com/isc-krakshith/irisdemo-demo-epcis-hosted
 $ cd irisdemo-demo-epcis-hosted
+```
+## OPTIONAL: IRIS may be run on a custom port if the default port is unavailable on the host. Expose the custom port by editing docker-compose.yml.
+
+```
 $ docker-compose build
 ```
 # Run
@@ -25,4 +29,4 @@ Once the container is up and running, access UI at: http://localhost:52773/csp/e
 
 Follow instructions after clicking the 'Show Instructions' button on the bottom right of the Presentation tab.
 
-IRIS hosts as well as provides the REST endpoints to serve the angular frontend. If container is deployed remotely, replace 'localhost' with external IP address of the remote host.
+IRIS hosts as well as provides the REST endpoints to serve the angular frontend. If container is deployed remotely and /or IRIS webserver is available on a custom port, replace 'localhost' and/or '52773' with external IP address and IRIS webserver port of the remote host, respectively.
