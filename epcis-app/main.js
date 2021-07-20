@@ -1586,7 +1586,7 @@ function RetrieveItemsComponent_div_16_li_7_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", subtask_r2.completed)("color", subtask_r2.color);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", subtask_r2.name, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"](" ", subtask_r2.name, " ", subtask_r2.quantity, " ");
 } }
 function RetrieveItemsComponent_div_16_Template(rf, ctx) { if (rf & 1) {
     const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
@@ -1600,7 +1600,7 @@ function RetrieveItemsComponent_div_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "span", 9);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "ul");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, RetrieveItemsComponent_div_16_li_7_Template, 3, 3, "li", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, RetrieveItemsComponent_div_16_li_7_Template, 3, 4, "li", 12);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -1610,7 +1610,7 @@ function RetrieveItemsComponent_div_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r0.allComplete)("color", ctx_r0.task.color)("indeterminate", ctx_r0.someComplete());
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r0.task.name, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"](" ", ctx_r0.task.name, " ", ctx_r0.task.quantity, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r0.task.subtasks);
 } }
@@ -1621,14 +1621,19 @@ class RetrieveItemsComponent {
             location: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('')
         });
         this.isListVisible = false;
+        this.numItemsFridge = 0;
+        this.numItemsSafe = 0;
+        this.numItemsPigeonhole = 0;
+        this.totalItems = 0;
         this.task = {
             name: 'All Picked',
-            completed: false,
+            quantity: this.totalItems,
+            completed: (this.totalItems ? false : true),
             color: 'primary',
             subtasks: [
-                { "name": "  Fridge", "completed": false, "color": "primary" },
-                { "name": "  Controlled Items Safe", "completed": false, "color": "primary" },
-                { "name": "  Pigeon Hole", "completed": false, "color": "primary" }
+                { "name": "  Fridge", "quantity": this.numItemsFridge, "completed": false, "color": "primary" },
+                { "name": "  Controlled Items Safe", "quantity": this.numItemsSafe, "completed": false, "color": "primary" },
+                { "name": "  Pigeon Hole", "quantity": this.numItemsPigeonhole, "completed": false, "color": "primary" }
             ]
         };
         this.allComplete = false;
@@ -1651,6 +1656,10 @@ class RetrieveItemsComponent {
         }
         this.task.subtasks.forEach(t => t.completed = completed);
     }
+    updateList(qty) {
+        this.task.quantity = qty;
+        this.task.subtasks[2].quantity = qty;
+    }
     onSubmit() { }
     ongetItems() {
         // TODO: Use EventEmitter with form value
@@ -1662,12 +1671,28 @@ class RetrieveItemsComponent {
             this.retrieveItemsForm.setValue({ location: 'Monkswell Ward' });
         }, error => {
             console.warn("There is something weird in retrieve items process", error);
+            this.updateList(this.getQty(error.error.text));
         });
         this.isListVisible = true;
     }
     getItems() {
         console.log("Getting Items...");
         this.ongetItems();
+    }
+    getQty(data) {
+        //we apportion the total quantity from the FHIR message to the three locations
+        //somewhat "dubiously" for now...
+        console.log("getQty ", data);
+        let qtyPos = data.indexOf('\"quantity\"');
+        let valPos = data.indexOf('\"value\"', qtyPos);
+        let colPos = data.indexOf(':', valPos); //position of colon following 'value'
+        let clsBracePos = data.indexOf('}', colPos); //position of closing curly brace
+        //sanity check see what we are reading
+        //console.log("qty: ", qtyPos, ": val: ", valPos, "; colon: ", colPos, "; brace: ", clsBracePos)
+        //the value of interest is between colPos and clsBracePos less 1
+        let quantity = data.substr((colPos + 1), (clsBracePos - colPos - 1));
+        //console.log("quantity: ", quantity)
+        return Number(quantity);
     }
     ngOnInit() {
     }
@@ -1711,7 +1736,7 @@ RetrieveItemsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, RetrieveItemsComponent_div_16_Template, 8, 5, "div", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, RetrieveItemsComponent_div_16_Template, 8, 6, "div", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
@@ -1889,7 +1914,7 @@ PresentationComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
 /*! exports provided: name, version, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"epcis-app\",\"version\":\"1.1.0\",\"scripts\":{\"ng\":\"ng\",\"prestart\":\"envsubst < src/environments/environment.template.ts > src/environments/environment.ts\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~10.1.3\",\"@angular/cdk\":\"^10.2.7\",\"@angular/common\":\"~10.1.3\",\"@angular/compiler\":\"~10.1.3\",\"@angular/core\":\"~10.1.3\",\"@angular/forms\":\"~10.1.3\",\"@angular/material\":\"^10.2.7\",\"@angular/platform-browser\":\"~10.1.3\",\"@angular/platform-browser-dynamic\":\"~10.1.3\",\"@angular/router\":\"~10.1.3\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1001.3\",\"@angular/cli\":\"~10.1.3\",\"@angular/compiler-cli\":\"~10.1.3\",\"@types/jasmine\":\"~3.5.0\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.0.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage-istanbul-reporter\":\"~3.0.2\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
+module.exports = JSON.parse("{\"name\":\"epcis-app\",\"version\":\"1.2.0\",\"scripts\":{\"ng\":\"ng\",\"prestart\":\"envsubst < src/environments/environment.template.ts > src/environments/environment.ts\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~10.1.3\",\"@angular/cdk\":\"^10.2.7\",\"@angular/common\":\"~10.1.3\",\"@angular/compiler\":\"~10.1.3\",\"@angular/core\":\"~10.1.3\",\"@angular/forms\":\"~10.1.3\",\"@angular/material\":\"^10.2.7\",\"@angular/platform-browser\":\"~10.1.3\",\"@angular/platform-browser-dynamic\":\"~10.1.3\",\"@angular/router\":\"~10.1.3\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1001.3\",\"@angular/cli\":\"~10.1.3\",\"@angular/compiler-cli\":\"~10.1.3\",\"@types/jasmine\":\"~3.5.0\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.0.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage-istanbul-reporter\":\"~3.0.2\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
 
 /***/ }),
 
