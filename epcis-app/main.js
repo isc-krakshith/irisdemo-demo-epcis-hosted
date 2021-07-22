@@ -904,7 +904,7 @@ InstructionsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](230, "Deliver -> Retrieve Items ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](231, "ul", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](232, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](233, "By providing the location name for the destination, the runner is able to view a list of the location from where the medications are to be collected. The checklist keeps track of the collections as the runner picks up medicines from each of the locations. When all the locations have been picked up from, the button becomes disabled.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](233, "By providing the location name for the destination, the runner is able to view a list and number of medicine bags for each of the locations from where the medications are to be collected. The checklist keeps track of the collections as the runner picks up medicines from each of the locations. When all the locations have been picked up from, the button becomes disabled.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](234, "li");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](235, "View the message trace in Management Portal which shows a FHIR bundle with a host of information on the patient. As might be expected, only necessary information is displayed within the RUNNER APP.");
