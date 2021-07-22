@@ -204,6 +204,7 @@ function GenLabelComponent_div_47_Template(rf, ctx) { if (rf & 1) {
 class GenLabelComponent {
     constructor(epcisIRISservice) {
         this.epcisIRISservice = epcisIRISservice;
+        this.doneEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.genLabelForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             pas: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](''),
             date: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](''),
@@ -266,6 +267,7 @@ class GenLabelComponent {
     genLabel() {
         console.log("Generating label...");
         this.onGenLabel();
+        this.doneEvent.emit('gen-label');
     }
     ngOnInit() {
     }
@@ -289,7 +291,7 @@ class GenLabelComponent {
     }
 }
 GenLabelComponent.ɵfac = function GenLabelComponent_Factory(t) { return new (t || GenLabelComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_epcis_iris_service__WEBPACK_IMPORTED_MODULE_2__["EPCISIRISService"])); };
-GenLabelComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: GenLabelComponent, selectors: [["pharmacy-gen-label"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([
+GenLabelComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: GenLabelComponent, selectors: [["pharmacy-gen-label"]], outputs: { doneEvent: "doneEvent" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([
             _services_epcis_iris_service__WEBPACK_IMPORTED_MODULE_2__["EPCISIRISService"]
         ])], decls: 48, vars: 15, consts: [[1, "gen-label-form"], [3, "formGroup", "ngSubmit"], ["cellspacing", "0"], [1, "form-header"], [1, "full-width"], ["matInput", "", "formControlName", "pas"], ["matInput", "", "formControlName", "date", 3, "matDatepicker"], ["matSuffix", "", 3, "for"], ["picker", ""], [1, "entry-button-wrapper"], ["mat-raised-button", "", "color", "primary", "type", "submit", 1, "gen-label-button", 3, "disabled", "click"], ["matInput", "", "formControlName", "inSpId", "readonly", ""], ["matInput", "", "formControlName", "locId", "readonly", ""], [1, "genlabel-button-wrapper"], [4, "ngIf"], ["width", "200", 1, "prescription-label", 3, "src"]], template: function GenLabelComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -410,7 +412,9 @@ GenLabelComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
                 templateUrl: './gen-label.component.html',
                 styleUrls: ['./gen-label.component.css']
             }]
-    }], function () { return [{ type: _services_epcis_iris_service__WEBPACK_IMPORTED_MODULE_2__["EPCISIRISService"] }]; }, null); })();
+    }], function () { return [{ type: _services_epcis_iris_service__WEBPACK_IMPORTED_MODULE_2__["EPCISIRISService"] }]; }, { doneEvent: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }] }); })();
 
 
 /***/ }),
@@ -688,7 +692,7 @@ InstructionsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](89, "User Interface");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](90, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](91, "This single page web-browser based application UI is built on an Angular framework v10.1.3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](91, "This single page web-browser based application UI is built on an Angular framework v10.1.3. Once again, the frontend is a single page containing HTML and JavaScript running on the browser. There are no routes in the url. Even if the server is offline, IF the browser is not refreshed, the application will still remain interactive and maintain the last known state. Errors, if any, will only be apparent in the REST CALL LOGS tab. 3 seconds after each view has been demonstrated, the Pharmacy and Runner apps will reset their views. To ensure this does not become an inconvenience, the best practice therefore is to allow the view to reset before carrying on with the next step of the demonstration");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](92, "p");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](93, "It communicates with a single InterSystems IRIS for Health instance via RESTful APIs, exposed by the IRIS instance.");
@@ -957,18 +961,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function RunnerAppComponent_div_22_Template(rf, ctx) { if (rf & 1) {
+    const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "scan", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "scan", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("doneEvent", function RunnerAppComponent_div_22_Template_scan_doneEvent_1_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7); const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r6.reset($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function RunnerAppComponent_div_23_Template(rf, ctx) { if (rf & 1) {
+    const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-retrieve-items");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-retrieve-items", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("doneEvent", function RunnerAppComponent_div_23_Template_app_retrieve_items_doneEvent_1_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9); const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r8.reset($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function RunnerAppComponent_div_24_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "comingsoon", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "comingsoon", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 class RunnerAppComponent {
@@ -978,6 +988,11 @@ class RunnerAppComponent {
         this.isComingSoon = false;
     }
     ngOnInit() {
+    }
+    reset() {
+        setTimeout(() => {
+            this.loadContent('comingsoon');
+        }, 3000);
     }
     loadContent(selection) {
         if (selection == 'identifyLocation') {
@@ -998,7 +1013,7 @@ class RunnerAppComponent {
     }
 }
 RunnerAppComponent.ɵfac = function RunnerAppComponent_Factory(t) { return new (t || RunnerAppComponent)(); };
-RunnerAppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RunnerAppComponent, selectors: [["app-runner-app"]], decls: 25, vars: 6, consts: [[1, "smartphone"], [1, "content"], ["mat-button", "", 3, "matMenuTriggerFor"], ["xPosition", "after"], ["identifyMenu", "matMenu"], ["mat-menu-item", "", 3, "click"], ["deliverMenu", "matMenu"], ["aboutMenu", "matMenu"], [4, "ngIf"], ["function", "scanLocation"], ["component", "smartphone"]], template: function RunnerAppComponent_Template(rf, ctx) { if (rf & 1) {
+RunnerAppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RunnerAppComponent, selectors: [["app-runner-app"]], decls: 25, vars: 6, consts: [[1, "smartphone"], [1, "content"], ["mat-button", "", 3, "matMenuTriggerFor"], ["xPosition", "after"], ["identifyMenu", "matMenu"], ["mat-menu-item", "", 3, "click"], ["deliverMenu", "matMenu"], ["aboutMenu", "matMenu"], [4, "ngIf"], ["function", "scanLocation", 3, "doneEvent"], [3, "doneEvent"], ["component", "smartphone"]], template: function RunnerAppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "button", 2);
@@ -1617,6 +1632,7 @@ function RetrieveItemsComponent_div_16_Template(rf, ctx) { if (rf & 1) {
 class RetrieveItemsComponent {
     constructor(epcisIRISservice) {
         this.epcisIRISservice = epcisIRISservice;
+        this.doneEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.retrieveItemsForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             location: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('')
         });
@@ -1642,6 +1658,7 @@ class RetrieveItemsComponent {
     }
     updateAllComplete() {
         this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
+        this.checkAllComplete();
     }
     someComplete() {
         if (this.task.subtasks == null) {
@@ -1655,6 +1672,12 @@ class RetrieveItemsComponent {
             return;
         }
         this.task.subtasks.forEach(t => t.completed = completed);
+        this.checkAllComplete();
+    }
+    checkAllComplete() {
+        if (this.allComplete) {
+            this.doneEvent.emit('retrieve-items');
+        }
     }
     updateList(qty) {
         this.task.quantity = qty;
@@ -1706,7 +1729,7 @@ class RetrieveItemsComponent {
     }
 }
 RetrieveItemsComponent.ɵfac = function RetrieveItemsComponent_Factory(t) { return new (t || RetrieveItemsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_epcis_iris_service__WEBPACK_IMPORTED_MODULE_2__["EPCISIRISService"])); };
-RetrieveItemsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RetrieveItemsComponent, selectors: [["app-retrieve-items"]], decls: 17, vars: 3, consts: [[1, "gen-label-form"], [1, "form-header"], [3, "formGroup", "ngSubmit"], ["cellspacing", "0"], [1, "entry-button-wrapper"], ["mat-raised-button", "", "color", "primary", "type", "submit", 3, "disabled", "click"], [1, "half-width"], ["matInput", "", "formControlName", "location"], [4, "ngIf"], [1, "list-section"], [1, "-list-section"], [1, "list-margin", 3, "checked", "color", "indeterminate", "change"], [4, "ngFor", "ngForOf"], [3, "ngModel", "color", "ngModelChange"]], template: function RetrieveItemsComponent_Template(rf, ctx) { if (rf & 1) {
+RetrieveItemsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RetrieveItemsComponent, selectors: [["app-retrieve-items"]], outputs: { doneEvent: "doneEvent" }, decls: 17, vars: 3, consts: [[1, "gen-label-form"], [1, "form-header"], [3, "formGroup", "ngSubmit"], ["cellspacing", "0"], [1, "entry-button-wrapper"], ["mat-raised-button", "", "color", "primary", "type", "submit", 3, "disabled", "click"], [1, "half-width"], ["matInput", "", "formControlName", "location"], [4, "ngIf"], [1, "list-section"], [1, "-list-section"], [1, "list-margin", 3, "checked", "color", "indeterminate", "change"], [4, "ngFor", "ngForOf"], [3, "ngModel", "color", "ngModelChange"]], template: function RetrieveItemsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h2", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Medicines to collect");
@@ -1753,7 +1776,9 @@ RetrieveItemsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
                 templateUrl: './retrieve-items.component.html',
                 styleUrls: ['./retrieve-items.component.css']
             }]
-    }], function () { return [{ type: _services_epcis_iris_service__WEBPACK_IMPORTED_MODULE_2__["EPCISIRISService"] }]; }, null); })();
+    }], function () { return [{ type: _services_epcis_iris_service__WEBPACK_IMPORTED_MODULE_2__["EPCISIRISService"] }]; }, { doneEvent: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }] }); })();
 
 
 /***/ }),
@@ -1914,7 +1939,7 @@ PresentationComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
 /*! exports provided: name, version, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"epcis-app\",\"version\":\"1.2.0\",\"scripts\":{\"ng\":\"ng\",\"prestart\":\"envsubst < src/environments/environment.template.ts > src/environments/environment.ts\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~10.1.3\",\"@angular/cdk\":\"^10.2.7\",\"@angular/common\":\"~10.1.3\",\"@angular/compiler\":\"~10.1.3\",\"@angular/core\":\"~10.1.3\",\"@angular/forms\":\"~10.1.3\",\"@angular/material\":\"^10.2.7\",\"@angular/platform-browser\":\"~10.1.3\",\"@angular/platform-browser-dynamic\":\"~10.1.3\",\"@angular/router\":\"~10.1.3\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1001.3\",\"@angular/cli\":\"~10.1.3\",\"@angular/compiler-cli\":\"~10.1.3\",\"@types/jasmine\":\"~3.5.0\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.0.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage-istanbul-reporter\":\"~3.0.2\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
+module.exports = JSON.parse("{\"name\":\"epcis-app\",\"version\":\"1.3.0\",\"scripts\":{\"ng\":\"ng\",\"prestart\":\"envsubst < src/environments/environment.template.ts > src/environments/environment.ts\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~10.1.3\",\"@angular/cdk\":\"^10.2.7\",\"@angular/common\":\"~10.1.3\",\"@angular/compiler\":\"~10.1.3\",\"@angular/core\":\"~10.1.3\",\"@angular/forms\":\"~10.1.3\",\"@angular/material\":\"^10.2.7\",\"@angular/platform-browser\":\"~10.1.3\",\"@angular/platform-browser-dynamic\":\"~10.1.3\",\"@angular/router\":\"~10.1.3\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1001.3\",\"@angular/cli\":\"~10.1.3\",\"@angular/compiler-cli\":\"~10.1.3\",\"@types/jasmine\":\"~3.5.0\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.0.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage-istanbul-reporter\":\"~3.0.2\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
 
 /***/ }),
 
@@ -1966,6 +1991,7 @@ function ScanComponent_div_5_Template(rf, ctx) { if (rf & 1) {
 class ScanComponent {
     constructor(epcisIRISservice) {
         this.epcisIRISservice = epcisIRISservice;
+        this.doneEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.scanForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             locFrName: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('')
         });
@@ -2072,6 +2098,7 @@ class ScanComponent {
     }
     submit() {
         this.onSubmit();
+        this.doneEvent.emit(this.function);
     }
     extractLocationFriendlyName(response) {
         let startLocPos = response.indexOf("\"friendlyDescriptionPurpose\":\"");
@@ -2081,7 +2108,7 @@ class ScanComponent {
     }
 }
 ScanComponent.ɵfac = function ScanComponent_Factory(t) { return new (t || ScanComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_epcis_iris_service__WEBPACK_IMPORTED_MODULE_3__["EPCISIRISService"])); };
-ScanComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ScanComponent, selectors: [["scan"]], inputs: { function: "function" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([
+ScanComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ScanComponent, selectors: [["scan"]], inputs: { function: "function" }, outputs: { doneEvent: "doneEvent" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([
             _services_epcis_iris_service__WEBPACK_IMPORTED_MODULE_3__["EPCISIRISService"]
         ])], decls: 6, vars: 4, consts: [["id", "scanButton", "mat-raised-button", "", "color", "primary", 1, "scan-button", 3, "disabled", "click"], ["id", "scanDoc", 1, "scan-doc", 3, "src"], [4, "ngIf"], [3, "formGroup"], ["appearance", "outline", 1, "full-width"], ["matInput", "", "formControlName", "locFrName", "placeholder", "wait", "readonly", ""]], template: function ScanComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
@@ -2115,6 +2142,8 @@ ScanComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
             }]
     }], function () { return [{ type: _services_epcis_iris_service__WEBPACK_IMPORTED_MODULE_3__["EPCISIRISService"] }]; }, { function: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
+        }], doneEvent: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
         }] }); })();
 
 
@@ -2346,13 +2375,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function PharmacyUiComponent_div_32_Template(rf, ctx) { if (rf & 1) {
+    const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "scan", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "scan", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("doneEvent", function PharmacyUiComponent_div_32_Template_scan_doneEvent_1_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9); const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r8.reset($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function PharmacyUiComponent_div_33_Template(rf, ctx) { if (rf & 1) {
+    const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "scan", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "scan", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("doneEvent", function PharmacyUiComponent_div_33_Template_scan_doneEvent_1_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11); const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r10.reset($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function PharmacyUiComponent_div_34_Template(rf, ctx) { if (rf & 1) {
@@ -2361,8 +2396,11 @@ function PharmacyUiComponent_div_34_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function PharmacyUiComponent_div_35_Template(rf, ctx) { if (rf & 1) {
+    const _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "pharmacy-gen-label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "pharmacy-gen-label", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("doneEvent", function PharmacyUiComponent_div_35_Template_pharmacy_gen_label_doneEvent_1_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r13); const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r12.reset($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 class PharmacyUiComponent {
@@ -2373,6 +2411,11 @@ class PharmacyUiComponent {
         this.isGenLabel = false;
     }
     ngOnInit() {
+    }
+    reset() {
+        setTimeout(() => {
+            this.loadContent('comingsoon');
+        }, 3000);
     }
     loadContent(selection) {
         if (selection == 'scanDischarge') {
@@ -2402,7 +2445,7 @@ class PharmacyUiComponent {
     }
 }
 PharmacyUiComponent.ɵfac = function PharmacyUiComponent_Factory(t) { return new (t || PharmacyUiComponent)(); };
-PharmacyUiComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PharmacyUiComponent, selectors: [["app-pharmacy-ui"]], decls: 36, vars: 9, consts: [[1, "tablet"], [1, "content"], ["mat-button", "", 3, "matMenuTriggerFor"], ["xPosition", "after"], ["stockMenu", "matMenu"], ["mat-menu-item", "", 3, "click"], ["xPosition", "after", 3, "overlapTrigger"], ["linkMenu", "matMenu"], ["lookupMenu", "matMenu"], ["aboutMenu", "matMenu"], [4, "ngIf"], ["function", "discharge"], ["function", "pigeonHole"], ["component", "tablet"]], template: function PharmacyUiComponent_Template(rf, ctx) { if (rf & 1) {
+PharmacyUiComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PharmacyUiComponent, selectors: [["app-pharmacy-ui"]], decls: 36, vars: 9, consts: [[1, "tablet"], [1, "content"], ["mat-button", "", 3, "matMenuTriggerFor"], ["xPosition", "after"], ["stockMenu", "matMenu"], ["mat-menu-item", "", 3, "click"], ["xPosition", "after", 3, "overlapTrigger"], ["linkMenu", "matMenu"], ["lookupMenu", "matMenu"], ["aboutMenu", "matMenu"], [4, "ngIf"], ["function", "discharge", 3, "doneEvent"], ["function", "pigeonHole", 3, "doneEvent"], ["component", "tablet"], [3, "doneEvent"]], template: function PharmacyUiComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "button", 2);
