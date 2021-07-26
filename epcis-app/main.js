@@ -991,8 +991,8 @@ class RunnerAppComponent {
     }
     reset() {
         setTimeout(() => {
-            this.loadContent('comingsoon');
-        }, 3000);
+            this.loadContent('resetview');
+        }, 3500);
     }
     loadContent(selection) {
         if (selection == 'identifyLocation') {
@@ -1008,6 +1008,11 @@ class RunnerAppComponent {
         else if (selection == 'comingsoon') {
             this.isidentifyLocation = false;
             this.isComingSoon = true;
+            this.isRetrieveItems = false;
+        }
+        else if (selection == 'resetview') {
+            this.isidentifyLocation = false;
+            this.isComingSoon = false;
             this.isRetrieveItems = false;
         }
     }
@@ -1939,7 +1944,7 @@ PresentationComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
 /*! exports provided: name, version, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"epcis-app\",\"version\":\"1.3.1\",\"scripts\":{\"ng\":\"ng\",\"prestart\":\"envsubst < src/environments/environment.template.ts > src/environments/environment.ts\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~10.1.3\",\"@angular/cdk\":\"^10.2.7\",\"@angular/common\":\"~10.1.3\",\"@angular/compiler\":\"~10.1.3\",\"@angular/core\":\"~10.1.3\",\"@angular/forms\":\"~10.1.3\",\"@angular/material\":\"^10.2.7\",\"@angular/platform-browser\":\"~10.1.3\",\"@angular/platform-browser-dynamic\":\"~10.1.3\",\"@angular/router\":\"~10.1.3\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1001.3\",\"@angular/cli\":\"~10.1.3\",\"@angular/compiler-cli\":\"~10.1.3\",\"@types/jasmine\":\"~3.5.0\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.0.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage-istanbul-reporter\":\"~3.0.2\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
+module.exports = JSON.parse("{\"name\":\"epcis-app\",\"version\":\"1.3.2\",\"scripts\":{\"ng\":\"ng\",\"prestart\":\"envsubst < src/environments/environment.template.ts > src/environments/environment.ts\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~10.1.3\",\"@angular/cdk\":\"^10.2.7\",\"@angular/common\":\"~10.1.3\",\"@angular/compiler\":\"~10.1.3\",\"@angular/core\":\"~10.1.3\",\"@angular/forms\":\"~10.1.3\",\"@angular/material\":\"^10.2.7\",\"@angular/platform-browser\":\"~10.1.3\",\"@angular/platform-browser-dynamic\":\"~10.1.3\",\"@angular/router\":\"~10.1.3\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1001.3\",\"@angular/cli\":\"~10.1.3\",\"@angular/compiler-cli\":\"~10.1.3\",\"@types/jasmine\":\"~3.5.0\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.0.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage-istanbul-reporter\":\"~3.0.2\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
 
 /***/ }),
 
@@ -2414,8 +2419,8 @@ class PharmacyUiComponent {
     }
     reset() {
         setTimeout(() => {
-            this.loadContent('comingsoon');
-        }, 3000);
+            this.loadContent('resetview');
+        }, 3500);
     }
     loadContent(selection) {
         if (selection == 'scanDischarge') {
@@ -2441,6 +2446,12 @@ class PharmacyUiComponent {
             this.isScanDischarge = false;
             this.isComingSoon = false;
             this.isGenLabel = true;
+        }
+        else if (selection == 'resetview') {
+            this.isScanPigeonHole = false;
+            this.isScanDischarge = false;
+            this.isComingSoon = false;
+            this.isGenLabel = false;
         }
     }
 }
