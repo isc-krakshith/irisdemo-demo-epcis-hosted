@@ -1523,7 +1523,7 @@ class EPCISIRISService {
     scanLocation(testPayload) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         let url = this.getServerAddress().concat('/query/demoStep6');
-        return this.http.get(url, this.httpTextOptions)
+        return this.http.get(url, testPayload)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((any) => this.log('Scan location : ' + `${any}`)), 
         //Sorry this is a hack... Complete REST response can be seen in the REST CALL LOGS TAB
         //but it cannot be parsed and an http parsing error is reported.
@@ -1545,6 +1545,12 @@ class EPCISIRISService {
             this.log('Retrieve Items : ' /*'+ `${any.error.error}` + " Response follows... : '*/ + `${any.error.text}`);
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(any);
         }));
+    }
+    setBizstepDeparting() {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
+        let url = this.getServerAddress().concat('/query/demoStep9/departing');
+        return this.http.get(url)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((bizstep) => this.log('BizStep Departing: ' + `${bizstep}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('set bizStep departing')));
     }
     dischargePatient(admitForm) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
@@ -1682,6 +1688,8 @@ class RetrieveItemsComponent {
     checkAllComplete() {
         if (this.allComplete) {
             this.doneEvent.emit('retrieve-items');
+            //all items collected, set EPCIS bizstep to "departing"
+            this.setBizstepDeparting();
         }
     }
     updateList(qty) {
@@ -1721,6 +1729,14 @@ class RetrieveItemsComponent {
         let quantity = data.substr((colPos + 1), (clsBracePos - colPos - 1));
         //console.log("quantity: ", quantity)
         return Number(quantity);
+    }
+    setBizstepDeparting() {
+        this.epcisIRISservice.setBizstepDeparting().subscribe((data) => {
+            //this.reset()
+            console.log("Bizstep set to departing", data, "success");
+        }, error => {
+            console.warn("There was an error in set bizstep departing process", error);
+        });
     }
     ngOnInit() {
     }
@@ -1944,7 +1960,7 @@ PresentationComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
 /*! exports provided: name, version, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"epcis-app\",\"version\":\"1.3.2\",\"scripts\":{\"ng\":\"ng\",\"prestart\":\"envsubst < src/environments/environment.template.ts > src/environments/environment.ts\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~10.1.3\",\"@angular/cdk\":\"^10.2.7\",\"@angular/common\":\"~10.1.3\",\"@angular/compiler\":\"~10.1.3\",\"@angular/core\":\"~10.1.3\",\"@angular/forms\":\"~10.1.3\",\"@angular/material\":\"^10.2.7\",\"@angular/platform-browser\":\"~10.1.3\",\"@angular/platform-browser-dynamic\":\"~10.1.3\",\"@angular/router\":\"~10.1.3\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1001.3\",\"@angular/cli\":\"~10.1.3\",\"@angular/compiler-cli\":\"~10.1.3\",\"@types/jasmine\":\"~3.5.0\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.0.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage-istanbul-reporter\":\"~3.0.2\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
+module.exports = JSON.parse("{\"name\":\"epcis-app\",\"version\":\"1.3.3\",\"scripts\":{\"ng\":\"ng\",\"prestart\":\"envsubst < src/environments/environment.template.ts > src/environments/environment.ts\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~10.1.3\",\"@angular/cdk\":\"^10.2.7\",\"@angular/common\":\"~10.1.3\",\"@angular/compiler\":\"~10.1.3\",\"@angular/core\":\"~10.1.3\",\"@angular/forms\":\"~10.1.3\",\"@angular/material\":\"^10.2.7\",\"@angular/platform-browser\":\"~10.1.3\",\"@angular/platform-browser-dynamic\":\"~10.1.3\",\"@angular/router\":\"~10.1.3\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.10.2\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1001.3\",\"@angular/cli\":\"~10.1.3\",\"@angular/compiler-cli\":\"~10.1.3\",\"@types/jasmine\":\"~3.5.0\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/node\":\"^12.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~5.0.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage-istanbul-reporter\":\"~3.0.2\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.0.2\"}}");
 
 /***/ }),
 
